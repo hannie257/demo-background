@@ -3,24 +3,37 @@
 <head>
   <meta charset="utf-8">
   <title>Responsive Image Width Only</title>
+  <link rel="preload" as="image" href="backgroundweb.png">
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden; /* allow horizontal scaling but no vertical scroll */
+      overflow-x: hidden;
       overflow-y: hidden;
+      background: transparent;
     }
 
     .responsive-img {
-      width: 100%;      /* dynamically adjusts to container width */
+      width: 100%;
       height: 550px;
       display: block;
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+    }
+
+    .responsive-img.loaded {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <img src="backgroundweb.png" alt="Demo image" class="responsive-img">
+  <img src="backgroundweb.png" alt="Demo image" class="responsive-img" id="mainImage">
+  <script>
+    const img = document.getElementById('mainImage');
+    img.onload = () => {
+      img.classList.add('loaded');
+    };
+  </script>
 </body>
 </html>
-
 
