@@ -2,22 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Responsive Image Demo</title>
+  <title>Responsive Image Width Only</title>
   <style>
-    /* Remove default margins and make html/body fill viewport */
     html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden; /* prevents scrollbars */
+      overflow-x: hidden; /* allow horizontal scaling but no vertical scroll */
+      overflow-y: hidden;
     }
 
-    /* Make the image scale dynamically while maintaining aspect ratio */
     .responsive-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* fills container without stretching */
+      width: 100%;      /* dynamically adjusts to container width */
+      height: auto;     /* keeps original height */
+      max-height: 500px; /* optional: prevent it from being too tall */
       display: block;
     }
   </style>
