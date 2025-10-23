@@ -4,10 +4,21 @@
   <meta charset="utf-8">
   <title>Responsive Image Demo</title>
   <style>
-    .responsive-img {
-      display: block;
+    /* Remove default margins and make html/body fill viewport */
+    html, body {
+      margin: 0;
+      padding: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden; /* prevents scrollbars */
+    }
+
+    /* Make the image scale dynamically while maintaining aspect ratio */
+    .responsive-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* fills container without stretching */
+      display: block;
     }
   </style>
 </head>
@@ -15,5 +26,4 @@
   <img src="backgroundweb.png" alt="Demo image" class="responsive-img">
 </body>
 </html>
-
 
